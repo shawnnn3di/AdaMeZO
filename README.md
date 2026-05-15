@@ -1,6 +1,6 @@
 # AdaMeZO
 
-This is the official implementation of the paper: AdaMeZO: Adam-style Zeroth-Order Optimizer for LLM Fine-tuning Without Maintaining the Moments. This implementation is heavily based on \url{MeZO}{https://github.com/princeton-nlp/mezo}. We are grateful to their fantastic work.
+This is the official implementation of the paper: [AdaMeZO: Adam-style Zeroth-Order Optimizer for LLM Fine-tuning Without Maintaining the Moments](https://arxiv.org/abs/2605.00650). This implementation is heavily based on [MeZO](https://github.com/princeton-nlp/mezo). We are grateful to their fantastic work.
 
 # Usage
 
@@ -38,6 +38,7 @@ CUDA_VISIBLE_DEVICES=3 SEED=3 NUMEXPR_MAX_THREADS=80 MODE=ft TASK=CB STEPS=40000
 
 If you found our work interesting, we will be happy if you can cite our work using the following citation.
 
+```
 @inproceedings{cai2026adamezo,
   title     = {AdaMeZO: Adam-style Zeroth-Order Optimizer for LLM Fine-tuning Without Maintaining the Moments},
   author    = {Cai, Zhijie and Chen, Haolong and Zhu, Guangxu},
@@ -45,3 +46,4 @@ If you found our work interesting, we will be happy if you can cite our work usi
   year      = {2026},
   note      = {To appear}
 }
+```
