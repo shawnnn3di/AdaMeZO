@@ -1,0 +1,32 @@
+
+
+Example usage:
+
+
+```bash
+cd MeZO/large_models
+
+# # hessian lr=1e-7
+CUDA_VISIBLE_DEVICES=0 SEED=1 NUMEXPR_MAX_THREADS=80 DUMP_NORM_CACHE=../../norm_cache/0419_CB_seed1 MODE=ft TASK=CB STEPS=40000 AMODE=1 HESS_WINDOW=10 BETA1=0.7 MU=0.99999 BETA2=0.9 LR=1.0e-7 MODEL=facebook/opt-1.3b nohup bash mezo.sh > ../../0419/CB_seed1.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 SEED=2 NUMEXPR_MAX_THREADS=80 DUMP_NORM_CACHE=../../norm_cache/0419_CB_seed2 MODE=ft TASK=CB STEPS=40000 AMODE=1 HESS_WINDOW=10 BETA1=0.7 MU=0.99999 BETA2=0.9 LR=1.0e-7 MODEL=facebook/opt-1.3b nohup bash mezo.sh > ../../0419/CB_seed2.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 SEED=3 NUMEXPR_MAX_THREADS=80 DUMP_NORM_CACHE=../../norm_cache/0419_CB_seed3 MODE=ft TASK=CB STEPS=40000 AMODE=1 HESS_WINDOW=10 BETA1=0.7 MU=0.99999 BETA2=0.9 LR=1.0e-7 MODEL=facebook/opt-1.3b nohup bash mezo.sh > ../../0419/CB_seed3.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 SEED=4 NUMEXPR_MAX_THREADS=80 DUMP_NORM_CACHE=../../norm_cache/0419_CB_seed4 MODE=ft TASK=CB STEPS=40000 AMODE=1 HESS_WINDOW=10 BETA1=0.7 MU=0.99999 BETA2=0.9 LR=1.0e-7 MODEL=facebook/opt-1.3b nohup bash mezo.sh > ../../0419/CB_seed4.log 2>&1 &
+
+
+# mezo lr=1e-7
+CUDA_VISIBLE_DEVICES=0 SEED=0 NUMEXPR_MAX_THREADS=80 MODE=ft TASK=CB STEPS=40000 AMODE=1 HESS_WINDOW=0 MU=0.99999 BETA2=0.9 LR=1.0e-7 MODEL=facebook/opt-1.3b nohup bash mezo.sh > ../../0419/CBa_seed1_b_m5.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 SEED=1 NUMEXPR_MAX_THREADS=80 MODE=ft TASK=CB STEPS=40000 AMODE=1 HESS_WINDOW=0 MU=0.99999 BETA2=0.9 LR=1.0e-7 MODEL=facebook/opt-1.3b nohup bash mezo.sh > ../../0419/CBa_seed2_b_m5.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 SEED=2 NUMEXPR_MAX_THREADS=80 MODE=ft TASK=CB STEPS=40000 AMODE=1 HESS_WINDOW=0 MU=0.99999 BETA2=0.9 LR=1.0e-7 MODEL=facebook/opt-1.3b nohup bash mezo.sh > ../../0419/CBa_seed3_b_m5.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 SEED=3 NUMEXPR_MAX_THREADS=80 MODE=ft TASK=CB STEPS=40000 AMODE=1 HESS_WINDOW=0 MU=0.99999 BETA2=0.9 LR=1.0e-7 MODEL=facebook/opt-1.3b nohup bash mezo.sh > ../../0419/CBa_seed4_b_m5.log 2>&1 &
+
+
+# # mezo lr=searching
+searching_lr=1.7e-7 # example settings
+
+CUDA_VISIBLE_DEVICES=0 SEED=0 NUMEXPR_MAX_THREADS=80 MODE=ft TASK=CB STEPS=40000 AMODE=1 HESS_WINDOW=0 MU=0.99999 BETA2=0.9 LR=$searching_lr MODEL=facebook/opt-1.3b nohup bash mezo.sh > ../../0419/CBb_seed1_b_m5.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 SEED=1 NUMEXPR_MAX_THREADS=80 MODE=ft TASK=CB STEPS=40000 AMODE=1 HESS_WINDOW=0 MU=0.99999 BETA2=0.9 LR=$searching_lr MODEL=facebook/opt-1.3b nohup bash mezo.sh > ../../0419/CBb_seed2_b_m5.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 SEED=2 NUMEXPR_MAX_THREADS=80 MODE=ft TASK=CB STEPS=40000 AMODE=1 HESS_WINDOW=0 MU=0.99999 BETA2=0.9 LR=$searching_lr MODEL=facebook/opt-1.3b nohup bash mezo.sh > ../../0419/CBb_seed3_b_m5.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 SEED=3 NUMEXPR_MAX_THREADS=80 MODE=ft TASK=CB STEPS=40000 AMODE=1 HESS_WINDOW=0 MU=0.99999 BETA2=0.9 LR=$searching_lr MODEL=facebook/opt-1.3b nohup bash mezo.sh > ../../0419/CBb_seed4_b_m5.log 2>&1 &
+
+```
+
